@@ -40,8 +40,8 @@ export function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-            ? 'bg-[#F5F5F3]/85 backdrop-blur-xl border-b border-black/[0.06]'
-            : 'bg-transparent'
+          ? 'bg-[#F5F5F3]/85 backdrop-blur-xl border-b border-black/[0.06]'
+          : 'bg-transparent'
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -109,7 +109,7 @@ export function Navbar() {
                   onClick={() => setOpen(false)}
                   variants={{
                     hidden: { opacity: 0, y: 24 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "cubic-bezier(0.25, 0.1, 0.25, 1)" } },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
                   }}
                   whileHover={{ x: 8, color: '#006E1C' }}
                   className="font-[family-name:var(--font-display)] text-4xl md:text-6xl italic text-[#1A1A1A] transition-colors"
