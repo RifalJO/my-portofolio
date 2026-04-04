@@ -18,7 +18,7 @@ export function Contact() {
             </h2>
           </div>
           <p className="text-[#6B7280] text-lg max-w-sm">
-            Open for full-time Data Enthusiast roles, collaborations, or just a good conversation about data.
+            Open for full-time Data Analyst roles, collaborations, or just a good conversation about data.
           </p>
           <div className="space-y-4">
             <p className="text-xs uppercase tracking-widest text-[#9CA3AF]">Reach Out</p>

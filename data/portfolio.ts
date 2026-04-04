@@ -62,7 +62,7 @@ export const projects: Project[] = [
     title: 'MoCal: AI-Powered Calorie Estimator',
     subtitle: 'Undergraduate Thesis · Gunadarma University',
     period: 'Jan 2026 – Apr 2026',
-    description: 'Built a free-text calorie estimation web app using FastAPI and React 18, integrating Groq API (LLaMA 3.1-8b) as the NLP parser. Designed a 4-layer food matching pipeline — exact match → fuzzy match → USDA API fallback → LLM estimation — against a PostgreSQL database of 2,955 food entries. Evaluated with MAE and SUS questionnaire; deployed on Railway.',
+    description: 'Built a free-text calorie estimation web app using FastAPI and React 18, integrating Groq API (LLaMA 3.1-8b) as the NLP parser. Designed a 4-layer food matching pipeline — exact match → fuzzy match → USDA API fallback → LLM estimation — against a PostgreSQL database of 2,955 food entries. Evaluated with MAE and SUS questionnaire; deployed on Vercel.',
     tags: ['FastAPI', 'React 18', 'LLaMA 3.1', 'PostgreSQL', 'RapidFuzz', 'USDA API'],
     link: 'https://mo-cal.vercel.app/',
     badge: null,
@@ -136,7 +136,7 @@ export const experience: ExperienceItem[] = [
     gpa: '3.84 / 4.00',
     bullets: [
       'Relevant Coursework: Statistics, Data Mining Concepts, Big Data Computing, Introduction to Data Science, Data Modeling & Visualization, Database Systems I & II, Artificial Intelligence, Decision Support Systems.',
-      'Delivered 4 end-to-end data and ML projects across academic and bootcamp tracks, including an undergraduate thesis deployed to production on Vercel and Railway.',
+      'Delivered 4 end-to-end data and ML projects across academic and bootcamp tracks, including an undergraduate thesis deployed to production on Vercel.',
     ],
   },
 ]
