@@ -22,7 +22,6 @@ export function Blog() {
           {blogPosts.map(post => (
             <div key={post.id}>
               <div className="aspect-[16/9] rounded-[16px] overflow-hidden bg-[#E8E8E6] mb-5">
-                {/* REPLACE: blog post thumbnail */}
                 <Image
                   src={post.image}
                   alt={post.title}

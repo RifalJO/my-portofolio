@@ -17,9 +17,7 @@ export function Hero() {
   return (
     <section className="pt-40 pb-32 px-6 max-w-5xl mx-auto text-center">
       <motion.div variants={container} initial="hidden" animate="visible" className="space-y-8">
-        {/* Row 1 — Identity strip */}
         <motion.div variants={item} className="flex items-center justify-center gap-3">
-          {/* REPLACE: your professional headshot */}
           <Image
             src="/assets/profile-picture.jpg"
             alt="Rizki Rifaldi"
@@ -33,7 +31,6 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Row 2 — H1 */}
         <motion.h1
           variants={item}
           className="font-[family-name:var(--font-display)] text-5xl sm:text-6xl md:text-8xl leading-[0.92] tracking-tight"
@@ -44,7 +41,6 @@ export function Hero() {
           <span className="italic text-[#006E1C]">&amp; Problem Solver</span>
         </motion.h1>
 
-        {/* Row 3 — Subtext */}
         <motion.p
           variants={item}
           className="text-lg text-[#6B7280] max-w-2xl mx-auto leading-relaxed"
@@ -54,7 +50,6 @@ export function Hero() {
           with a strong drive to grow in a data-focused environment.
         </motion.p>
 
-        {/* Row 4 — CTAs */}
         <motion.div variants={item} className="flex items-center justify-center gap-4 flex-wrap">
           <motion.a
             href="#projects"
@@ -65,7 +60,6 @@ export function Hero() {
             View My Work
           </motion.a>
 
-          {/* REPLACE: update href when CV PDF is uploaded to /public/cv.pdf */}
           <motion.a
             href={personal.cvPath}
             download
@@ -77,9 +71,7 @@ export function Hero() {
           </motion.a>
         </motion.div>
 
-        {/* Row 5 — Hero Banner */}
         <motion.div variants={item} className="w-full rounded-[20px] overflow-hidden bg-[#E8E8E6] mt-8">
-          {/* REPLACE: hero banner — workspace photo, data dashboard screenshot, or professional portrait */}
           <Image
             src="/assets/mocal.png"
             alt="Hero banner"

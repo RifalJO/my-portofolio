@@ -13,7 +13,6 @@ interface CertificateModalProps {
 export function CertificateModal({ images, title, isOpen, onClose }: CertificateModalProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Reset index when modal opens with new images
   useEffect(() => {
     if (isOpen) setCurrentIndex(0)
   }, [isOpen, images])
@@ -26,7 +25,6 @@ export function CertificateModal({ images, title, isOpen, onClose }: Certificate
     setCurrentIndex(prev => (prev - 1 + images.length) % images.length)
   }, [images.length])
 
-  // Keyboard navigation
   useEffect(() => {
     if (!isOpen) return
 
@@ -56,10 +54,8 @@ export function CertificateModal({ images, title, isOpen, onClose }: Certificate
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
           onClick={onClose}
         >
-          {/* Backdrop */}
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
 
-          {/* Modal content */}
           <motion.div
             initial={{ scale: 0.92, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -68,7 +64,6 @@ export function CertificateModal({ images, title, isOpen, onClose }: Certificate
             className="relative max-w-4xl w-full max-h-[90vh] flex flex-col"
             onClick={e => e.stopPropagation()}
           >
-            {/* Header */}
             <div className="flex items-center justify-between mb-4">
               <div className="min-w-0">
                 <h3 className="font-[family-name:var(--font-display)] text-white text-lg sm:text-xl truncate">
@@ -92,7 +87,6 @@ export function CertificateModal({ images, title, isOpen, onClose }: Certificate
               </button>
             </div>
 
-            {/* Image container */}
             <div className="relative rounded-[16px] overflow-hidden bg-white flex-1 min-h-0">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -114,7 +108,6 @@ export function CertificateModal({ images, title, isOpen, onClose }: Certificate
                 </motion.div>
               </AnimatePresence>
 
-              {/* Navigation arrows */}
               {images.length > 1 && (
                 <>
                   <button
@@ -139,18 +132,16 @@ export function CertificateModal({ images, title, isOpen, onClose }: Certificate
               )}
             </div>
 
-            {/* Page dots */}
             {images.length > 1 && (
               <div className="flex justify-center gap-2 mt-4">
                 {images.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrentIndex(i)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                      i === currentIndex
-                        ? 'bg-white w-6'
-                        : 'bg-white/30 hover:bg-white/50'
-                    }`}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === currentIndex
+                      ? 'bg-white w-6'
+                      : 'bg-white/30 hover:bg-white/50'
+                      }`}
                     aria-label={`Go to page ${i + 1}`}
                   />
                 ))}

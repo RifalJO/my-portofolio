@@ -8,7 +8,6 @@ export function Contact() {
     <section id="contact" className="py-24 px-6 max-w-7xl mx-auto">
       <AnimatedSection>
         <div className="space-y-12">
-          {/* Header */}
           <div>
             <SectionLabel>Get In Touch</SectionLabel>
             <h2 className="font-[family-name:var(--font-display)] text-6xl md:text-7xl tracking-tight leading-[0.92]">

@@ -24,7 +24,6 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden'
@@ -45,7 +44,6 @@ export function Navbar() {
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          {/* Left — Logo */}
           <a href="#" className="flex items-center gap-2">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#006E1C] opacity-75" />
@@ -54,7 +52,6 @@ export function Navbar() {
             <span className="font-[family-name:var(--font-display)] text-lg">{personal.handle}</span>
           </a>
 
-          {/* Center — Available badge (md+) */}
           <div className="hidden md:flex items-center gap-2 bg-[#D1FAE5] text-[#006E1C] rounded-full px-4 py-1.5 text-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#006E1C] opacity-75" />
@@ -63,7 +60,6 @@ export function Navbar() {
             <span className="italic font-[family-name:var(--font-body)]">Available for work</span>
           </div>
 
-          {/* Right — Menu button */}
           <button
             onClick={() => setOpen(true)}
             className="font-[family-name:var(--font-body)] text-sm tracking-wide hover:text-[#006E1C] transition-colors cursor-pointer"
@@ -73,7 +69,6 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Fullscreen Overlay */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -83,7 +78,6 @@ export function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-[100] bg-[#F5F5F3] flex flex-col justify-center items-center"
           >
-            {/* Close button */}
             <button
               onClick={() => setOpen(false)}
               className="absolute top-4 right-6 w-12 h-12 flex items-center justify-center hover:text-[#006E1C] transition-colors cursor-pointer"
@@ -92,7 +86,6 @@ export function Navbar() {
               <X size={28} />
             </button>
 
-            {/* Nav Links */}
             <motion.div
               initial="hidden"
               animate="visible"

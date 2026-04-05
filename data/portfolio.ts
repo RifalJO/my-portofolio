@@ -1,5 +1,3 @@
-// data/portfolio.ts
-
 export const personal = {
   name: 'Muhamad Rizki Rifaldi',
   handle: 'Rifaldi',
@@ -14,7 +12,7 @@ export const personal = {
   phone: '(+62) 812-1229-8742',
   linkedin: 'https://www.linkedin.com/in/rifaldi706',
   github: 'https://github.com/RifalJO',
-  cvPath: '/cv.pdf', // REPLACE: upload your CV PDF to /public/cv.pdf
+  cvPath: '/cv.pdf',
   available: true,
   stats: [
     { value: '3+', label: 'Years', sub: 'Learning & Building' },
@@ -74,11 +72,11 @@ export const projects: Project[] = [
     title: 'Customer Segmentation — RFM + K-Means',
     subtitle: 'Asah Program led by Dicoding',
     period: 'Sep 2025 – Jan 2026',
-    description: 'Preprocessed the Online Retail II UCI dataset; built a K-Means clustering model (Silhouette Score 0.600), segmenting customers into 5 behavioral profiles from high-value actives to churned groups, visualized with Seaborn.',
+    description: 'Preprocessed the Online Retail II UCI dataset — handling duplicates, missing values, invalid transactions, and engineering a TotalPrice feature for RFM computation. Built a K-Means clustering model (Scikit-learn) with StandardScaler normalization; determined k=5 as optimal via Elbow Method and Silhouette Score of 0.600, segmenting customers into 5 behavioral profiles. Visualized RFM-based cluster distributions using Seaborn, identifying actionable segments from high-value actives to at-risk and churned groups.',
     tags: ['Python', 'Scikit-learn', 'K-Means', 'RFM', 'Seaborn', 'UCI Dataset'],
     link: 'https://visualizationcapstonea25cs282.streamlit.app/',
     badge: '🏆 Top Capstone',
-    image: '/assets/RFM.png', // REPLACE: segmentation viz screenshot
+    image: '/assets/RFM.png',
   },
   {
     id: 'food-knn',
@@ -86,11 +84,11 @@ export const projects: Project[] = [
     title: 'Food Recommendation System — KNN',
     subtitle: 'Academic Research · Gunadarma University',
     period: 'May 2025 – Jul 2025',
-    description: 'Collected and preprocessed 1,138 food records via web scraping (BeautifulSoup), built a KNN content-based filtering model for personalized dietary suggestions, deployed as a full web application.',
+    description: 'Collected and preprocessed 1,138 food records via web scraping (Python, BeautifulSoup), including data cleaning and nutritional feature engineering. Built a KNN-based recommendation model (Scikit-learn) with content-based filtering to deliver personalized dietary suggestions based on users\' nutritional profiles. Deployed the system as a web-based application, integrating data processing, ML inference, and user interaction in a single end-to-end pipeline.',
     tags: ['Python', 'KNN', 'Scikit-learn', 'BeautifulSoup', 'Content-Based Filtering'],
     link: 'https://re-fit.vercel.app/',
     badge: null,
-    image: '/assets/Refit.png', // REPLACE: app screenshot
+    image: '/assets/Refit.png',
   },
   {
     id: 'beijing-air',
@@ -98,11 +96,11 @@ export const projects: Project[] = [
     title: 'Beijing Air Quality Dashboard',
     subtitle: 'Dicoding Data Analysis Course',
     period: '2025',
-    description: 'End-to-end data analysis on the Beijing Multi-Site Air Quality dataset. Built a multi-tab Streamlit dashboard with Folium-based geospatial visualization covering EDA, trend analysis, and station-level pollutant mapping.',
+    description: 'Performed end-to-end exploratory data analysis on multi-station Beijing air quality data using Python and Pandas. Built an interactive multi-tab Streamlit dashboard with Folium-based geospatial visualizations to surface pollution patterns across stations and time periods. Identified seasonal trends and station-level anomalies, translating raw sensor data into actionable environmental insights.',
     tags: ['Python', 'Streamlit', 'Folium', 'Pandas', 'EDA', 'Geospatial'],
     link: 'https://rifaldikualitasudara.streamlit.app/',
     badge: null,
-    image: '/assets/airbeijing.png', // REPLACE: dashboard screenshot
+    image: '/assets/airbeijing.png',
   },
 ]
 
@@ -212,7 +210,7 @@ export const blogPosts: BlogPost[] = [
     title: 'EDA Itu Seni, Bukan Sekadar Statistik',
     excerpt: 'Exploratory Data Analysis yang baik bukan tentang berapa banyak chart yang kamu buat, tapi seberapa dalam pertanyaan yang kamu ajukan ke data.',
     date: 'Mar 2026',
-    image: 'https://placehold.co/800x450/e8e8e6/999999?text=Blog+Post+1', // REPLACE: blog thumbnail
+    image: 'https://placehold.co/800x450/e8e8e6/999999?text=Blog+Post+1',
   },
   {
     id: 2,
@@ -220,7 +218,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Kenapa K-Means Gagal di Dataset Saya?',
     excerpt: 'Tiga kesalahan umum saat menggunakan K-Means yang hampir semua orang lakukan di proyek pertama mereka — dan cara menghindarinya.',
     date: 'Feb 2026',
-    image: 'https://placehold.co/800x450/e8e8e6/999999?text=Blog+Post+2', // REPLACE: blog thumbnail
+    image: 'https://placehold.co/800x450/e8e8e6/999999?text=Blog+Post+2',
   },
   {
     id: 3,
@@ -228,6 +226,6 @@ export const blogPosts: BlogPost[] = [
     title: 'Dari Skripsi ke Produk: Lessons from MoCal',
     excerpt: 'Membangun MoCal mengajarkan saya bahwa skripsi terbaik adalah yang bisa dipakai orang lain. Ini ceritanya.',
     date: 'Jan 2026',
-    image: 'https://placehold.co/800x450/e8e8e6/999999?text=Blog+Post+3', // REPLACE: blog thumbnail
+    image: 'https://placehold.co/800x450/e8e8e6/999999?text=Blog+Post+3',
   },
 ]

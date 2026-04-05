@@ -71,7 +71,6 @@ export function Achievements() {
         </AnimatedSection>
       </section>
 
-      {/* Certificate lightbox modal */}
       {activeAchievement && (
         <CertificateModal
           images={activeAchievement.images}
