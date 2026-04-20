@@ -4,7 +4,7 @@ export const personal = {
   title: 'Data Enthusiast & ML Practitioner',
   tagline: 'I turn raw data into actionable insights using Python, SQL, and Machine Learning.',
   bio: [
-    "I'm a final-semester Information Systems student at Gunadarma University (GPA 3.84/4.00). I specialize in building end-to-end data solutions — from raw data preprocessing and feature engineering to ML model deployment and interactive dashboards.",
+    "I'm a final-semester Information Systems student at Gunadarma University (GPA 3.96/4.00). I specialize in building end-to-end data solutions — from raw data preprocessing and feature engineering to ML model deployment and interactive dashboards.",
     "My projects span customer segmentation with K-Means, food recommendation systems with KNN, and my undergraduate thesis MoCal — an AI-powered calorie estimator using LLMs and fuzzy matching. I believe data should tell a story, not just fill a table.",
   ],
   location: 'Ciracas, Jakarta Timur',
@@ -131,7 +131,7 @@ export const experience: ExperienceItem[] = [
     period: '2022 – Present',
     role: "Bachelor's Degree in Information Systems",
     org: 'Gunadarma University',
-    gpa: '3.84 / 4.00',
+    gpa: '3.96 / 4.00',
     bullets: [
       'Relevant Coursework: Statistics, Data Mining Concepts, Big Data Computing, Introduction to Data Science, Data Modeling & Visualization, Database Systems I & II, Artificial Intelligence, Decision Support Systems.',
       'Delivered 4 end-to-end data and ML projects across academic and bootcamp tracks, including an undergraduate thesis deployed to production on Vercel.',
