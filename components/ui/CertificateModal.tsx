@@ -61,7 +61,7 @@ export function CertificateModal({ images, title, isOpen, onClose }: Certificate
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.92, opacity: 0 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="relative max-w-4xl w-full max-h-[90vh] flex flex-col"
+            className="relative max-w-4xl w-full h-[90vh] flex flex-col"
             onClick={e => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-4">
@@ -102,7 +102,8 @@ export function CertificateModal({ images, title, isOpen, onClose }: Certificate
                     alt={`${title} — Page ${currentIndex + 1}`}
                     width={1200}
                     height={850}
-                    className="w-full h-auto object-contain"
+                    className="w-full h-full object-contain"
+                    sizes="(max-width: 896px) 100vw, 896px"
                     quality={90}
                   />
                 </motion.div>

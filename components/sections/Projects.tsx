@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { projects } from '@/data/portfolio'
@@ -10,6 +10,15 @@ export function Projects() {
   const [activeProjectId, setActiveProjectId] = useState<string>(projects[0].id)
   
   const activeProject = projects.find(p => p.id === activeProjectId) || projects[0]
+  const detailRef = useRef<HTMLDivElement>(null)
+
+  // Scroll the detail panel into view so the change is noticed, since the
+  // thumbnail grid sits below it and the panel may be off-screen.
+  const selectProject = (id: string) => {
+    if (id === activeProjectId) return
+    setActiveProjectId(id)
+    detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
@@ -24,7 +33,7 @@ export function Projects() {
           <p className="hidden md:block text-sm uppercase tracking-widest text-[#9CA3AF]">2025 — 2026</p>
         </div>
 
-        <div className="mb-16 min-h-[550px]">
+        <div ref={detailRef} className="mb-16 min-h-[550px] scroll-mt-24">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProject.id}
@@ -78,7 +87,7 @@ export function Projects() {
                 key={p.id} 
                 className={`group cursor-pointer transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-60 hover:opacity-100'}`} 
                 whileHover={{ y: -4 }}
-                onClick={() => setActiveProjectId(p.id)}
+                onClick={() => selectProject(p.id)}
               >
                 <div className={`aspect-[16/9] rounded-[16px] overflow-hidden bg-[#E8E8E6] mb-5 relative transition-all duration-300 ${isActive ? 'ring-2 ring-[#006E1C] ring-offset-4 ring-offset-white' : ''}`}>
                   <Image
