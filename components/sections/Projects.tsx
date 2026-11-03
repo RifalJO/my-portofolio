@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { projects } from '@/data/portfolio'
@@ -8,17 +8,8 @@ import { AnimatedSection } from '@/components/ui/AnimatedSection'
 
 export function Projects() {
   const [activeProjectId, setActiveProjectId] = useState<string>(projects[0].id)
-  
-  const activeProject = projects.find(p => p.id === activeProjectId) || projects[0]
-  const detailRef = useRef<HTMLDivElement>(null)
 
-  // Scroll the detail panel into view so the change is noticed, since the
-  // thumbnail grid sits below it and the panel may be off-screen.
-  const selectProject = (id: string) => {
-    if (id === activeProjectId) return
-    setActiveProjectId(id)
-    detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+  const activeProject = projects.find(p => p.id === activeProjectId) || projects[0]
 
   return (
     <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
@@ -33,102 +24,110 @@ export function Projects() {
           <p className="hidden md:block text-sm uppercase tracking-widest text-[#9CA3AF]">2025 — 2026</p>
         </div>
 
-        <div ref={detailRef} className="mb-16 min-h-[550px] scroll-mt-24">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeProject.id}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="group"
-            >
-              <div className="rounded-[20px] overflow-hidden mb-8 bg-[#E8E8E6]">
-                <Image
-                  src={activeProject.image}
-                  alt={activeProject.title}
-                  width={1400}
-                  height={600}
-                  className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-700"
-                />
-              </div>
-              <div className="flex flex-col md:flex-row md:justify-between gap-6">
-                <div className="space-y-3">
-                  <h3 className="font-[family-name:var(--font-display)] text-4xl">{activeProject.title}</h3>
-                  <p className="text-sm text-[#9CA3AF]">{activeProject.subtitle} · {activeProject.period}</p>
-                  <p className="text-[#6B7280] max-w-2xl">{activeProject.description}</p>
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {activeProject.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1 bg-[#D1FAE5] text-[#006E1C] rounded-full text-xs font-medium">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <a
-                  href={activeProject.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-[family-name:var(--font-display)] text-xl italic hover:text-[#006E1C] hover:pr-4 transition-all duration-300 self-start md:self-center whitespace-nowrap"
-                >
-                  View Live →
-                </a>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+        {/*
+          Project picker sits beside the detail panel on desktop (and above it on
+          mobile), so selecting a project never moves the page out from under the user.
+        */}
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_340px] gap-8 lg:gap-12 items-start">
+          {/* Picker */}
+          <div
+            role="tablist"
+            aria-label="Select a project"
+            className="order-first lg:order-last flex lg:flex-col gap-4 overflow-x-auto lg:overflow-visible snap-x snap-mandatory pb-2 lg:pb-0 -mx-6 px-6 lg:mx-0 lg:px-0 lg:sticky lg:top-28"
+          >
+            {projects.map(p => {
+              const isActive = p.id === activeProjectId
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {projects.map(p => {
-            const isActive = p.id === activeProjectId
-            
-            return (
-              <motion.div 
-                key={p.id} 
-                className={`group cursor-pointer transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-60 hover:opacity-100'}`} 
-                whileHover={{ y: -4 }}
-                onClick={() => selectProject(p.id)}
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setActiveProjectId(p.id)}
+                  className={`group flex-shrink-0 w-[260px] lg:w-full snap-start text-left rounded-[16px] p-3 border transition-all duration-300 cursor-pointer lg:flex lg:items-center lg:gap-4 ${
+                    isActive
+                      ? 'bg-white border-[#006E1C] shadow-sm'
+                      : 'border-black/[0.06] opacity-70 hover:opacity-100 hover:bg-white'
+                  }`}
+                >
+                  <div className="relative aspect-[16/9] lg:w-32 lg:flex-shrink-0 rounded-[10px] overflow-hidden bg-[#E8E8E6] mb-3 lg:mb-0">
+                    <Image
+                      src={p.image}
+                      alt={p.title}
+                      width={400}
+                      height={225}
+                      className="w-full h-full object-cover"
+                    />
+                    {p.badge && (
+                      <span className="absolute top-1.5 left-1.5 bg-[#006E1C] text-white text-[10px] font-medium px-2 py-0.5 rounded-full">
+                        {p.badge}
+                      </span>
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <h3
+                      className={`font-[family-name:var(--font-display)] text-lg leading-snug transition-colors ${
+                        isActive ? 'text-black' : 'text-gray-600'
+                      }`}
+                    >
+                      {p.title}
+                    </h3>
+                    <p className="text-xs text-[#9CA3AF] mt-1">{p.period}</p>
+                  </div>
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Detail */}
+          <div className="min-w-0 lg:min-h-[640px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeProject.id}
+                role="tabpanel"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                className="group"
               >
-                <div className={`aspect-[16/9] rounded-[16px] overflow-hidden bg-[#E8E8E6] mb-5 relative transition-all duration-300 ${isActive ? 'ring-2 ring-[#006E1C] ring-offset-4 ring-offset-white' : ''}`}>
+                <div className="rounded-[20px] overflow-hidden mb-8 bg-[#E8E8E6]">
                   <Image
-                    src={p.image}
-                    alt={p.title}
-                    width={800}
-                    height={450}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    src={activeProject.image}
+                    alt={activeProject.title}
+                    width={1400}
+                    height={600}
+                    className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-700"
                   />
-                  {p.badge && (
-                    <span className="absolute top-3 left-3 bg-[#006E1C] text-white text-xs font-medium px-3 py-1 rounded-full">
-                      {p.badge}
-                    </span>
+                </div>
+                <div className="flex flex-col md:flex-row md:justify-between gap-6">
+                  <div className="space-y-3">
+                    <h3 className="font-[family-name:var(--font-display)] text-4xl">{activeProject.title}</h3>
+                    <p className="text-sm text-[#9CA3AF]">{activeProject.subtitle} · {activeProject.period}</p>
+                    <p className="text-[#6B7280] max-w-2xl">{activeProject.description}</p>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {activeProject.tags.map(tag => (
+                        <span key={tag} className="px-3 py-1 bg-[#D1FAE5] text-[#006E1C] rounded-full text-xs font-medium">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  {activeProject.link !== '#' && (
+                    <a
+                      href={activeProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-[family-name:var(--font-display)] text-xl italic hover:text-[#006E1C] hover:pr-4 transition-all duration-300 self-start md:self-center whitespace-nowrap"
+                    >
+                      View Live →
+                    </a>
                   )}
                 </div>
-                <h3 className={`font-[family-name:var(--font-display)] text-2xl mb-1 transition-colors ${isActive ? 'text-black' : 'text-gray-600'}`}>{p.title}</h3>
-                <p className="text-xs text-[#9CA3AF] mb-3">{p.subtitle} · {p.period}</p>
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {p.tags.map(tag => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 bg-[#FAFAF8] border border-black/[0.06] rounded-full text-xs text-[#6B7280]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                {p.link !== '#' && (
-                  <a
-                    href={p.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-[family-name:var(--font-display)] italic text-sm hover:text-[#006E1C] transition-colors"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    View Project →
-                  </a>
-                )}
               </motion.div>
-            )
-          })}
+            </AnimatePresence>
+          </div>
         </div>
       </AnimatedSection>
     </section>
