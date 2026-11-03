@@ -4,10 +4,10 @@ export const personal = {
   title: 'Data Enthusiast & ML Practitioner',
   tagline: 'I turn raw data into actionable insights using Python, SQL, and Machine Learning.',
   bio: [
-    "I'm a final-semester Information Systems student at Gunadarma University (GPA 3.96/4.00). I specialize in building end-to-end data solutions — from raw data preprocessing and feature engineering to ML model deployment and interactive dashboards.",
-    "My projects span customer segmentation with K-Means, food recommendation systems with KNN, and my undergraduate thesis MoCal — an AI-powered calorie estimator using LLMs and fuzzy matching. I believe data should tell a story, not just fill a table.",
+    "I'm an Information Systems graduate of Gunadarma University (GPA 3.96/4.00) and a BNSP-certified Data Analyst. I specialize in building end-to-end data solutions — from data cleaning and feature engineering to ML model deployment and interactive dashboards.",
+    "Most recently, I was a Programmatic Operations Intern at Emtek Digital, managing 5+ ad campaigns in Google Ad Manager with 9.8M+ impressions. My projects include customer segmentation with RFM and K-Means (Top Capstone, Asah Program) and my undergraduate thesis MoCal — an LLM-based calorie estimator. I believe data should tell a story, not just fill a table.",
   ],
-  location: 'Ciracas, Jakarta Timur',
+  location: 'Bekasi, Jawa Barat',
   email: 'rizkirifaldi0602@gmail.com',
   phone: '(+62) 812-1229-8742',
   linkedin: 'https://www.linkedin.com/in/rifaldi706',
@@ -15,28 +15,28 @@ export const personal = {
   cvPath: '/cv.pdf',
   available: true,
   stats: [
-    { value: '3+', label: 'Years', sub: 'Learning & Building' },
+    { value: '9.8M+', label: 'Impressions', sub: 'Ad Campaigns Managed' },
     { value: '4', label: 'Projects', sub: 'Shipped End-to-End' },
-    { value: '3', label: 'Certs', sub: 'Dicoding ML Track' },
+    { value: '4', label: 'Certs', sub: 'BNSP & Dicoding' },
   ],
 }
 
 export const skills = [
   {
     category: 'Data Analysis',
-    items: ['Python', 'SQL', 'Pandas', 'NumPy', 'EDA', 'Statistical Analysis', 'Feature Engineering'],
+    items: ['Python', 'SQL', 'Pandas', 'NumPy', 'EDA', 'Statistical Analysis', 'Feature Engineering', 'Data Visualization', 'Campaign Performance Reporting'],
   },
   {
     category: 'Machine Learning',
-    items: ['Scikit-learn', 'Supervised Learning', 'Unsupervised Learning', 'Deep Learning', 'NLP', 'KNN', 'K-Means', 'RFM Analysis'],
+    items: ['Scikit-learn', 'Supervised Learning', 'Unsupervised Learning', 'Deep Learning', 'NLP', 'KNN', 'K-Means', 'RFM Analysis', 'Clustering & Classification', 'Model Evaluation'],
   },
   {
     category: 'Visualization',
-    items: ['Tableau', 'Power BI', 'Matplotlib', 'Seaborn', 'Grafana'],
+    items: ['Tableau', 'Power BI', 'Matplotlib', 'Seaborn', 'Looker Studio', 'Grafana'],
   },
   {
     category: 'Tools & Infra',
-    items: ['Docker', 'FastAPI', 'Jupyter Notebook', 'Git', 'VS Code', 'PostgreSQL', 'Prometheus', 'RStudio', 'Notion'],
+    items: ['Docker', 'FastAPI', 'Jupyter Notebook', 'Git', 'VS Code', 'PostgreSQL', 'Prometheus', 'RStudio', 'Notion', 'Google Ad Manager', 'Google Workspace', 'Microsoft Office', 'Canva'],
   },
 ]
 
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     title: 'MoCal: AI-Powered Calorie Estimator',
     subtitle: 'Undergraduate Thesis · Gunadarma University',
     period: 'Jan 2026 – Apr 2026',
-    description: 'Built a free-text calorie estimation web app using FastAPI and React 18, integrating Groq API (LLaMA 3.1-8b) as the NLP parser. Designed a 4-layer food matching pipeline — exact match → fuzzy match → USDA API fallback → LLM estimation — against a PostgreSQL database of 2,955 food entries. Evaluated with MAE and SUS questionnaire; deployed on Vercel.',
+    description: 'Built a free-text calorie estimation web app using FastAPI and React 18, integrating Groq API (LLaMA 3.1-8b) as the NLP parser. Designed a 4-layer food matching pipeline — exact match → fuzzy match → USDA API fallback → LLM estimation — against a PostgreSQL database of 2,955 food entries. Evaluated with an MAE of 92.79 kcal (40 samples) and a SUS score of 81.55 (50 respondents); token-efficient prompting reduced token usage by ~36.5%. Deployed on Vercel.',
     tags: ['FastAPI', 'React 18', 'LLaMA 3.1', 'PostgreSQL', 'RapidFuzz', 'USDA API'],
     link: 'https://mo-cal.vercel.app/',
     badge: null,
@@ -115,6 +115,19 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
+    id: 'emtek-digital',
+    period: 'May 2026 – Aug 2026',
+    role: 'Programmatic Operations Intern',
+    org: 'Emtek Digital',
+    gpa: null,
+    bullets: [
+      'Managed 5+ end-to-end ad campaigns in Google Ad Manager across Vidio and KLY inventories (Exxon, Samsung, Sweety, IQOS, Rasa Masa), generating 9.8M+ impressions.',
+      'Compiled campaign performance reports in Google Sheets, surfacing insights that drove delivery optimization and CTR up to 2.57%.',
+      'Screened and proofed ad creatives against client specifications, maintaining a 100% delivery rate against booked targets.',
+      'Collaborated with Sales and Product teams to optimize programmatic ad delivery.',
+    ],
+  },
+  {
     id: 'dicoding-cohort',
     period: 'Aug 2025 – Jan 2026',
     role: 'Machine Learning Cohort Participant',
@@ -128,7 +141,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     id: 'gunadarma',
-    period: '2022 – Present',
+    period: 'Sep 2022 – Aug 2026',
     role: "Bachelor's Degree in Information Systems",
     org: 'Gunadarma University',
     gpa: '3.96 / 4.00',
@@ -149,6 +162,17 @@ export interface Achievement {
 }
 
 export const achievements: Achievement[] = [
+  {
+    id: 'cert-bnsp-data-analyst',
+    title: 'Sertifikasi Kompetensi Okupasi Data Analyst',
+    org: 'Badan Nasional Sertifikasi Profesi (BNSP)',
+    year: '2026',
+    description: 'Certified as a competent Data Analyst through Lembaga Sertifikasi Profesi Universitas Gunadarma, covering 7 SKKNI competency units from identifying data management needs and validating data to building business intelligence and preparing analysis reports. Valid for 3 years.',
+    certImages: [
+      '/assets/serti/bnsp-data-analyst/bnsp-data-analyst_page-0001.jpg',
+      '/assets/serti/bnsp-data-analyst/bnsp-data-analyst_page-0002.jpg',
+    ],
+  },
   {
     id: 'top-capstone',
     title: 'Top Capstone Project',

@@ -27,7 +27,7 @@ export function Hero() {
           />
           <div className="text-left">
             <p className="text-sm text-[#6B7280]">{personal.name}</p>
-            <p className="text-sm text-[#9CA3AF]">Data Enthusiast · Jakarta</p>
+            <p className="text-sm text-[#9CA3AF]">Data Analyst · Bekasi</p>
           </div>
         </motion.div>
 
@@ -45,9 +45,9 @@ export function Hero() {
           variants={item}
           className="text-lg text-[#6B7280] max-w-2xl mx-auto leading-relaxed"
         >
-          Final-year Information Systems student at Gunadarma University.
+          Information Systems graduate from Gunadarma University (GPA 3.96) and BNSP-certified Data Analyst.
           I turn raw data into actionable insights using Python, SQL, and Machine Learning —
-          with a strong drive to grow in a data-focused environment.
+          with hands-on campaign analytics experience at Emtek Digital.
         </motion.p>
 
         <motion.div variants={item} className="flex items-center justify-center gap-4 flex-wrap">

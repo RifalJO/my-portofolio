@@ -18,8 +18,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Muhamad Rizki Rifaldi — Data Enthusiast & ML Practitioner',
-  description: 'Portfolio of Muhamad Rizki Rifaldi, a Data Analyst and ML practitioner from Jakarta. Python, SQL, Scikit-learn, Power BI, Tableau.',
-  keywords: ['Data Analyst', 'Machine Learning', 'Python', 'SQL', 'Portfolio', 'Jakarta', 'Gunadarma'],
+  description: 'Portfolio of Muhamad Rizki Rifaldi, a BNSP-certified Data Analyst and ML practitioner from Bekasi. Python, SQL, Power BI, Tableau, Google Ad Manager, Scikit-learn.',
+  keywords: ['Data Analyst', 'BNSP', 'Machine Learning', 'Python', 'SQL', 'Power BI', 'Google Ad Manager', 'Portfolio', 'Bekasi', 'Gunadarma'],
   authors: [{ name: 'Muhamad Rizki Rifaldi' }],
   openGraph: {
     title: 'Muhamad Rizki Rifaldi — Data Enthusiast & ML Practitioner',
